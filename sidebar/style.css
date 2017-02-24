@@ -1,6 +1,7 @@
 body {
   font-family: Georgia;
   margin: 0;
+  font-size: 2vw;
 }
 
 .sidebar {
@@ -11,7 +12,7 @@ body {
   align-items: center;
 }
 
-.sidebar .clock, .calendar, .links {
+.sidebar .clock, .announcement, .calendar, .links {
   width: 90%;
 }
 
@@ -32,13 +33,45 @@ body {
   left: 0;
 }
 
-.sidebar .calendar {
+.sidebar .announcement {
+}
+
+.sidebar .announcement .text {
+  text-align: center;
+  margin: 3vw 0;
+}
+
+.sidebar .announcement .button {
+  background-color: #0ABEFF;
+  text-align: center;
+  margin: 0 10%;
+  border: 1px solid transparent;
+  border-radius: 15vw;
+  text-align: center;
+  line-height: 2;
+}
+
+.sidebar .announcement .button a {
+  color: white;
+}
+
+.sidebar .calendar1, .calendar2 {
   text-align: center;
   width: 90%;
 }
 
-.sidebar .calendar img {
+.sidebar .calendar1 img {
   width: 100%;
+}
+
+.sidebar .calendar2 {
+  margin-top: 6vw;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar .calendar2 .ui-icon {
+  transform: scale(3);
 }
 
 .sidebar .header {
