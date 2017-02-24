@@ -1,7 +1,5 @@
 body {
   font-family: Georgia;
-  margin: 0;
-  overflow-x: hidden;
 }
 
 .sidebar {
@@ -20,6 +18,7 @@ body {
 .sidebar .clock {
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 .sidebar .clock img {
