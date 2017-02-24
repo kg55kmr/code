@@ -1,5 +1,7 @@
 body {
   font-family: Georgia;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .sidebar {
@@ -68,7 +70,7 @@ body {
   box-sizing: border-box;
   border: 1px solid grey;
   width: 100%;
-  padding: 15px;
+  padding: 2vw;
   font-size: 6vw;
   font-weight: bold;
   color: black;
