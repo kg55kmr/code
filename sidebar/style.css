@@ -39,6 +39,7 @@ body {
 .sidebar .announcement .text {
   text-align: center;
   margin: 3vw 0;
+  font-size: 4vw;
 }
 
 .sidebar .announcement .button {
@@ -49,6 +50,7 @@ body {
   border-radius: 15vw;
   text-align: center;
   line-height: 2;
+  font-size: 4vw;
 }
 
 .sidebar .announcement .button a {
@@ -61,7 +63,10 @@ body {
   justify-content: center;
 }
 
-.sidebar .calendar1 .ui-icon {
+.sidebar .calendar1 .ui-state-highlight {
+  border-color: blue;
+  background-color: blue;
+  color: white;
 }
 
 .sidebar .calendar1 .ui-datepicker {
