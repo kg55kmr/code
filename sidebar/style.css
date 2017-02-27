@@ -55,23 +55,27 @@ body {
   color: white;
 }
 
-.sidebar .calendar1, .calendar2 {
-  text-align: center;
-  width: 90%;
-}
-
-.sidebar .calendar1 img {
-  width: 100%;
-}
-
-.sidebar .calendar2 {
+.sidebar .calendar1 {
   margin-top: 6vw;
   display: flex;
   justify-content: center;
 }
 
-.sidebar .calendar2 .ui-icon {
-  /*transform: scale(3);*/
+.sidebar .calendar1 .ui-icon {
+  transform: scale(3);
+}
+
+.sidebar .calendar1 .ui-datepicker {
+  font-size: 5.2vw !important;
+}
+
+.sidebar .calendar2 {
+  text-align: center;
+  width: 90%;
+}
+
+.sidebar .calendar2 img {
+  width: 100%;
 }
 
 .sidebar .header {

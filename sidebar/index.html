@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
 
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
@@ -26,10 +26,10 @@
         <div class="button"><a href='http://krschool55.wixsite.com/learning-process/zno' target='_blank'>ЗНО - ДПА 2017</a></div>
       </div>
       <div class="header">Календар</div>
-      <div class="calendar1"><img src="http://www.dilovamova.com/images/wpi.cache/informer/informer_300.png"></div>
-      <div class="calendar2">
+      <div class="calendar1">
         <div class="container"></div>
       </div>
+      <div class="calendar2"><img src="http://www.dilovamova.com/images/wpi.cache/informer/informer_300.png"></div>
       <div class="header">Корисні сайти</div>
       <div class='links'>
         <div class="item">
@@ -135,7 +135,7 @@
       	yearSuffix: "" };
 
       $.datepicker.setDefaults( $.datepicker.regional.uk );
-      $('.calendar2 .container').datepicker();
+      $('.calendar1 .container').datepicker();
       $('div.ui-datepicker').css({
         fontSize: '4vw'
       });
