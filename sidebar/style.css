@@ -62,7 +62,7 @@ body {
 }
 
 .sidebar .calendar1 .ui-icon {
-  transform: scale(3);
+  /*transform: scale(3);*/
 }
 
 .sidebar .calendar1 .ui-datepicker {
