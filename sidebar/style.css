@@ -56,17 +56,16 @@ body {
 }
 
 .sidebar .calendar1 {
-  margin-top: 6vw;
+  margin-bottom: 6vw;
   display: flex;
   justify-content: center;
 }
 
 .sidebar .calendar1 .ui-icon {
-  /*transform: scale(3);*/
 }
 
 .sidebar .calendar1 .ui-datepicker {
-  font-size: 5.2vw !important;
+  font-size: 5.1vw !important;
 }
 
 .sidebar .calendar2 {
