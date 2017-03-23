@@ -11,7 +11,7 @@
     <script src='https://cdn.sobekrepository.org/includes/jquery-rotate/2.2/jquery-rotate.min.js'></script>
   </head>
   <body>
-    <div class="sidebar">
+    <div class="sidebar" style='display: none'>
       <div class="header">ШМО<br>вчителів</div>
       <div class="shortcuts">
         <div class="shortcut">
@@ -162,6 +162,14 @@
       $('div.ui-datepicker').css({
         fontSize: '4vw'
       });
+
+      var noMo = window.location.search.slice(1).includes('no-mo');
+      if (noMo) {
+          $('.shortcuts').prev().remove();
+          $('.shortcuts').remove();
+      }
+
+      $('.sidebar').css('display', 'flex');
     </script>
   </body>
 </html>
