@@ -7,7 +7,7 @@ body {
   font-weight: bold;
   position: absolute;
   white-space: nowrap;
-  animation: rightToLeft 5s linear infinite;
+  animation: rightToLeft 7s linear infinite;
 }
 
 @keyframes rightToLeft {
