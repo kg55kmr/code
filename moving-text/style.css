@@ -3,6 +3,8 @@ body {
 }
 
 #text {
+  font-size: 14px;
+  font-weight: bold;
   position: absolute;
   white-space: nowrap;
   animation: rightToLeft 5s linear infinite;
