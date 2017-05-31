@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 25px;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+li:hover {
+    background-color: #efefef;
+    cursor: pointer;
+}
+
+.thumbnail {
+    margin-right: 5px;
+}
+
+.thumbnail img {
+    width: 100px;
+    height: 100px;
+}
+
+.info {
+    position: relative;
+}
+
+.content {
+    overflow: hidden;
+    display: none;
+    transition: all 500ms ease;
+}
+
+.flickr-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.fotorama {
+    margin: 0 auto;
+}
+
+.content.expand {
+    display: block;
+}

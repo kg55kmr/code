@@ -1,0 +1,67 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/fotorama/fotorama.css">
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/fotorama/fotorama.js"></script>
+    <script src="https://cdn.rawgit.com/kzh55/kzh55/c640cf83/src/app/js/flickr.js"></script>
+</head>
+<body>
+    <div id="posts">
+        <ul>
+            <li v-for="post, index in posts" @click="postClick(post, index)">
+                <div class="thumbnail"><img :src="post.thumbnail"></div>
+                <div class="info">
+                    <div class="date">{{ post.date }}</div>
+                    <div class="title">{{ post.title }}</div>
+                    <div class="content" :class="isSelected(post)" v-html="post.content"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let vue = new Vue({
+            el: '#posts',
+            data: {
+                posts: [],
+                selected: null
+            },
+            methods: {
+                postClick(post, index) {
+                    if (this.selected === post) this.selected = null;
+                    else {
+                        this.selected = post;
+
+                        const scriptId = `script_${index}`;
+                        if (document.getElementById(scriptId) == null) {
+                            let script = document.createElement('script');
+                            script.id = `script_${index}`;
+                            script.innerHTML = post.script;
+                            document.getElementById('posts').appendChild(script);
+                        }
+                    }
+                },
+                isSelected(post) {
+                    return {
+                        expand: post === this.selected
+                    }
+                }
+            },
+            async mounted() {
+                let r = await axios.get('http://kzh55.github.io/tags/library/index.json');
+                for (post of r.data) {
+                    let d = new Date(post.date);
+                    post.date = ('0' + d.getDay()).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear();
+                    let match = /[\s\S]*<script>([\s\S]*)<\/script>[\s\S]*/.exec(post.content);
+                    if (match !== null) post.script = match[1];
+                    else post.script = null;
+                }
+                this.posts = this.posts.concat(r.data);
+            }
+        });
+    </script>
+</body>
+</html>
