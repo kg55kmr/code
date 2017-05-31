@@ -6,11 +6,16 @@ body {
     margin: 25px;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 li {
-    display: flex;
-    flex-direction: row;
     padding-top: 15px;
     padding-bottom: 15px;
+    width: 100%;
 }
 
 li:hover {
@@ -27,12 +32,12 @@ li:hover {
     height: 100px;
 }
 
-.info {
-    position: relative;
+.ltr {
+    display: flex;
+    flex-direction: row;
 }
 
 .content {
-    overflow: hidden;
     display: none;
     transition: all 500ms ease;
 }
@@ -43,7 +48,8 @@ li:hover {
 }
 
 .fotorama {
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 .content.expand {

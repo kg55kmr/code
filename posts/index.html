@@ -13,12 +13,14 @@
     <div id="posts">
         <ul>
             <li v-for="post, index in posts" @click="postClick(post, index)">
-                <div class="thumbnail"><img :src="post.thumbnail"></div>
-                <div class="info">
-                    <div class="date">{{ post.date }}</div>
-                    <div class="title">{{ post.title }}</div>
-                    <div class="content" :class="isSelected(post)" v-html="post.content"></div>
+                <div class="ltr">
+                    <div class="thumbnail"><img :src="post.thumbnail"></div>
+                    <div class="info">
+                        <div class="date">{{ post.date }}</div>
+                        <div class="title">{{ post.title }}</div>
+                    </div>
                 </div>
+                <div class="content" :class="isSelected(post)" v-html="post.content"></div>
             </li>
         </ul>
     </div>
