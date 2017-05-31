@@ -12,7 +12,7 @@
 <body>
     <div id="posts">
         <ul>
-            <li v-for="post, index in posts" @click="postClick(post, index)">
+            <li class="post" v-for="post, index in posts" @click="postClick(post, index)">
                 <div class="ltr">
                     <div class="thumbnail"><img :src="post.thumbnail"></div>
                     <div class="info">
@@ -20,7 +20,7 @@
                         <div class="title">{{ post.title }}</div>
                     </div>
                 </div>
-                <div class="content" :class="isSelected(post)" v-html="post.content"></div>
+                <div class="content" :class="isSelected(post)" v-html="post.content" @click.stop=""></div>
             </li>
         </ul>
     </div>
@@ -53,7 +53,8 @@
                 }
             },
             async mounted() {
-                let r = await axios.get('https://kzh55.github.io/tags/library/index.json');
+                let query = new URLSearchParams(window.location.search);
+                let r = await axios.get(`https://kzh55.github.io/tags/${query.get('from')}/index.json`);
                 for (post of r.data) {
                     let d = new Date(post.date);
                     post.date = ('0' + d.getDay()).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear();
@@ -61,7 +62,7 @@
                     if (match !== null) post.script = match[1];
                     else post.script = null;
                 }
-                this.posts = this.posts.concat(r.data);
+                this.posts = r.data;
             }
         });
     </script>
