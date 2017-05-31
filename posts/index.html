@@ -51,7 +51,7 @@
                 }
             },
             async mounted() {
-                let r = await axios.get('http://kzh55.github.io/tags/library/index.json');
+                let r = await axios.get('https://kzh55.github.io/tags/library/index.json');
                 for (post of r.data) {
                     let d = new Date(post.date);
                     post.date = ('0' + d.getDay()).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear();
