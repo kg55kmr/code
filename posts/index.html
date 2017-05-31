@@ -59,9 +59,15 @@
                 for (post of r.data) {
                     let d = new Date(post.date);
                     post.date = ('0' + d.getDay()).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear();
-                    let match = /[\s\S]*<script>([\s\S]*)<\/script>[\s\S]*/.exec(post.content);
-                    if (match !== null) post.script = match[1];
-                    else post.script = null;
+                    let re = /<script>([\s\S]*?)<\/script>/g;
+
+                    post.script = '';
+                    let m;
+
+                    while ((m = re.exec(post.content)) !== null) {
+                        if (m.index === re.lastIndex) re.lastIndex++;
+                        post.script += m[1];
+                    }
                 }
                 this.posts = r.data;
             }
