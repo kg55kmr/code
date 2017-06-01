@@ -58,14 +58,15 @@
                 let r = await axios.get(`https://kzh55.github.io/tags/${query.get('from')}/index.json`);
                 for (post of r.data) {
                     let d = new Date(post.date);
-                    post.date = ('0' + d.getDay()).slice(-2) + '/' + ('0' + d.getDate()).slice(-2) + '/' + d.getFullYear();
-                    let re = /<script>([\s\S]*?)<\/script>/g;
+                    post.date = ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth() + 1)).slice(-2) + '/' + d.getFullYear();
+
+                    let reScript = /<script>([\s\S]*?)<\/script>/g;
 
                     post.script = '';
                     let m;
 
-                    while ((m = re.exec(post.content)) !== null) {
-                        if (m.index === re.lastIndex) re.lastIndex++;
+                    while ((m = reScript.exec(post.content)) !== null) {
+                        if (m.index === reScript.lastIndex) reScript.lastIndex++;
                         post.script += m[1];
                     }
                 }
