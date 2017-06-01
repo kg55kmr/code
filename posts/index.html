@@ -24,9 +24,11 @@
                 <div class="content" :class="isSelected(post)" v-html="post.content" @click.stop=""></div>
             </li>
         </ul>
-        <ul id="pagination">
-            <li class="page" v-for="page in pages" @click="pageClick(page.index)" :class="isActive(page.index)">{{ page.index + 1 }}</li>
-        </ul>
+        <div id="pagination-wrapper">
+            <ul id="pagination">
+                <li class="page" v-for="page in pages" @click="pageClick(page.index)" :class="isActive(page.index)">{{ page.index + 1 }}</li>
+            </ul>
+        </div>
     </div>
     <script>
         let vue = new Vue({
