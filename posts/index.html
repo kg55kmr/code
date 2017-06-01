@@ -11,11 +11,11 @@
     <script src="https://cdn.rawgit.com/kzh55/kzh55/c640cf83/src/app/js/flickr.js"></script>
 </head>
 <body>
-    <div id="posts">
-        <ul>
+    <div id="posts-mount">
+        <ul id="posts">
             <li class="post" v-for="post, index in posts" @click="postClick(post, index)">
                 <div class="ltr">
-                    <div class="thumbnail"><img :src="post.thumbnail"></div>
+                    <div class="thumbnail"><img :src="post.thumbnail" onerror="emptyThumb(this)"></div>
                     <div class="info">
                         <div class="date">{{ post.date }}</div>
                         <div class="title">{{ post.title }}</div>
@@ -72,6 +72,9 @@
                 this.posts = r.data;
             }
         });
+        function emptyThumb(o) {
+            $(o).attr('src', 'https://kzh55.github.io/thumbnails/empty.jpg');
+        }
     </script>
 </body>
 </html>

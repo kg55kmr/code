@@ -6,7 +6,7 @@ body {
     margin: 25px;
 }
 
-ul {
+#posts {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -21,6 +21,8 @@ ul {
     border: 1px solid #b5c9d6;
     border-radius: 15px;
     overflow: hidden;
+    font-family: 'Verdana';
+    font-size: 13px;
 }
 
 li:hover {
