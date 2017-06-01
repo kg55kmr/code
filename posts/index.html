@@ -26,7 +26,9 @@
         </ul>
         <div id="pagination-wrapper">
             <ul id="pagination">
-                <li class="page" v-for="page in pages" @click="pageClick(page.index)" :class="isActive(page.index)">{{ page.index + 1 }}</li>
+                <li class="page" v-for="page in pages" @click="pageClick(page.index)" :class="pageState(page.index)">
+                    <template v-if="page.index >= 0">{{ page.index + 1 }}</template>
+                </li>
             </ul>
         </div>
     </div>
@@ -55,7 +57,7 @@
                     }
                 },
                 pageClick(page) {
-                    if (this.pageActive == page) return;
+                    if (this.pageActive == page || page == -1) return;
 
                     this.pageActive = page;
                     this.posts = this.pages[page].posts;
@@ -65,9 +67,10 @@
                         expand: post === this.selected
                     }
                 },
-                isActive(page) {
+                pageState(page) {
                     return {
-                        active: this.pageActive === page
+                        active: this.pageActive == page,
+                        empty: page == -1
                     }
                 }
             },
@@ -100,6 +103,8 @@
                     };
                     this.pages.push(page);
                 }
+                if (pageTotal < 10) this.pages = this.pages.concat(Array(10 - pageTotal).fill({index: -1}));
+
                 this.posts = this.pages[0].posts;
             }
         });

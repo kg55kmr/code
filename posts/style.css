@@ -145,7 +145,7 @@ body {
     background-color: #efefef;
 }
 
-.page:hover:not(.active) {
+.page:hover:not(.active):not(.empty) {
     cursor: pointer;
     font-weight: bold;
 }
