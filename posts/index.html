@@ -33,6 +33,8 @@
         </div>
     </div>
     <script>
+        const pagesPerPage = 10;
+
         let vue = new Vue({
             el: '#posts-mount',
             data: {
@@ -91,10 +93,10 @@
                     }
                 }
 
-                let pageTotal = Math.ceil(r.data.length / 5);
+                let pageTotal = Math.ceil(r.data.length / pagesPerPage);
                 for (let i = 0; i < pageTotal; i++) {
-                    let from = i * 5;
-                    let to = from + 5;
+                    let from = i * pagesPerPage;
+                    let to = from + pagesPerPage;
                     if (to >= r.data.length) to = r.data.length;
 
                     let page = {
