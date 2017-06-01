@@ -24,13 +24,18 @@
                 <div class="content" :class="isSelected(post)" v-html="post.content" @click.stop=""></div>
             </li>
         </ul>
+        <ul id="pagination">
+            <li class="page" v-for="page in pages" @click="pageClick(page.index)" :class="isActive(page.index)">{{ page.index + 1 }}</li>
+        </ul>
     </div>
     <script>
         let vue = new Vue({
-            el: '#posts',
+            el: '#posts-mount',
             data: {
                 posts: [],
-                selected: null
+                pages: [],
+                selected: null,
+                pageActive: 0
             },
             methods: {
                 postClick(post, index) {
@@ -47,21 +52,31 @@
                         }
                     }
                 },
+                pageClick(page) {
+                    if (this.pageActive == page) return;
+
+                    this.pageActive = page;
+                    this.posts = this.pages[page].posts;
+                },
                 isSelected(post) {
                     return {
                         expand: post === this.selected
+                    }
+                },
+                isActive(page) {
+                    return {
+                        active: this.pageActive === page
                     }
                 }
             },
             async mounted() {
                 let query = new URLSearchParams(window.location.search);
                 let r = await axios.get(`https://kzh55.github.io/tags/${query.get('from')}/index.json`);
-                for (post of r.data) {
+                for (let post of r.data) {
                     let d = new Date(post.date);
                     post.date = ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth() + 1)).slice(-2) + '/' + d.getFullYear();
 
                     let reScript = /<script>([\s\S]*?)<\/script>/g;
-
                     post.script = '';
                     let m;
 
@@ -70,7 +85,20 @@
                         post.script += m[1];
                     }
                 }
-                this.posts = r.data;
+
+                let pageTotal = Math.ceil(r.data.length / 5);
+                for (let i = 0; i < pageTotal; i++) {
+                    let from = i * 5;
+                    let to = from + 5;
+                    if (to >= r.data.length) to = r.data.length;
+
+                    let page = {
+                        index: i,
+                        posts: r.data.slice(from, to)
+                    };
+                    this.pages.push(page);
+                }
+                this.posts = this.pages[0].posts;
             }
         });
         function emptyThumb(o) {

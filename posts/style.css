@@ -25,7 +25,7 @@ body {
     font-size: 13px;
 }
 
-li:hover {
+.post:hover {
     cursor: pointer;
     background-color: #ebf6fd;
 }
@@ -107,4 +107,45 @@ li:hover {
 .fotorama__wrap--slide .fotorama__stage__frame {
     background-color: #f7f7f7;
     border: 1px solid lightgrey;
+}
+
+#pagination {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    /*background-color: #f9f9f9;*/
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-right: 1px solid #b5b5b5;
+    border-top: 1px solid #b5b5b5;
+    border-bottom: 1px solid #b5b5b5;
+}
+
+.page:first-child {
+    border-left: 1px solid #b5b5b5;
+}
+
+.page:nth-child(odd) {
+    background-color: #e2e2e2;
+}
+
+.page:nth-child(even) {
+    background-color: #efefef;
+}
+
+.page:hover:not(.active) {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.page.active {
+    font-weight: bold;
+    background-color: #d2d3f7;
 }
