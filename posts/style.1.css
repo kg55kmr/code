@@ -44,25 +44,21 @@ body {
     flex-direction: row;
 }
 
-#popup {
-    position: relative;
+.content {
+    transition: all 300ms ease;
+    cursor: default;
+    display: none;
 }
 
-#popup #close {
-    position: absolute;
-    right: -20px;
-    top: -20px;
-    cursor: pointer;
-}
-
-#popup #close img {
-    width: 32px;
-}
-
-#content h1 {
+.content h1 {
     font-size: 14px;
     text-align: center;
     font-family: 'Verdana';
+}
+
+.content.expand {
+    position: relative;
+    display: block;
 }
 
 .date {
