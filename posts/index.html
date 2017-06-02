@@ -16,24 +16,26 @@
             <div id="close" @click="content = null"><img src="close.svg"></div>
             <div id="content" v-html="content"></div>
         </div>
-        <ul id="posts" v-else>
-            <li class="post" v-for="post, index in posts" @click="postClick(post, index)">
-                <div class="ltr">
-                    <div class="thumbnail"><img :src="post.thumbnail" onerror="emptyThumb(this)"></div>
-                    <div class="info">
-                        <div class="date">{{ post.date }}</div>
-                        <div class="title">{{ post.title }}</div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <div id="pagination-wrapper" v-if="!content">
+        <template v-else>
+            <div id="pagination-wrapper">
             <ul id="pagination">
                 <li class="page" v-for="page in pages" @click="pageClick(page.index)" :class="pageState(page.index)">
                     <template v-if="page.index >= 0">{{ page.index + 1 }}</template>
                 </li>
             </ul>
-        </div>
+            </div>
+            <ul id="posts">
+                <li class="post" v-for="post, index in posts" @click="postClick(post, index)">
+                    <div class="ltr">
+                        <div class="thumbnail"><img :src="post.thumbnail" onerror="emptyThumb(this)"></div>
+                        <div class="info">
+                            <div class="date">{{ post.date }}</div>
+                            <div class="title">{{ post.title }}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </template>
     </div>
     <script>
         const pagesPerPage = 10;
