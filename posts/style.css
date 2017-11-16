@@ -130,8 +130,8 @@ body {
     flex-flow: row wrap;
     width: calc(10*30px);
     border-color: #b5b5b5;
-    border-style: solid;
-    border-width: 1px 0 0 1px;
+    /* border-style: solid; */
+    /* border-width: 1px 0 0 1px; */
     padding: 0;
     box-sizing: content-box;
 }
@@ -142,17 +142,12 @@ body {
     align-items: center;
     width: 30px;
     height: 30px;
+    border-radius: 15px;
     border-color: #b5b5b5;
     border-style: solid;
-    border-width: 0 1px 1px 0
-}
-
-.page:nth-child(odd) {
-    background-color: #e2e2e2;
-}
-
-.page:nth-child(even) {
-    background-color: #efefef;
+    border-width: 0 1px 1px 0;
+    background-color: #d3e5ff;
+    margin: 2px;
 }
 
 .page:hover:not(.active):not(.empty) {
@@ -162,5 +157,6 @@ body {
 
 .page.active {
     font-weight: bold;
-    background-color: #d2d3f7;
+    background-color: #5197ff;
+    color: white;
 }
