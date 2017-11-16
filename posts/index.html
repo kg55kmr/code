@@ -1,6 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="hover-min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/fotorama/fotorama.css">
     <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
@@ -13,7 +14,7 @@
 <body>
     <div id="posts-mount">
         <div id="popup" v-if="content">
-            <div id="close" @click="content = null"><img src="close.svg"></div>
+            <div id="back" @click="content = null"><img src="back.svg"></div>
             <div id="content" v-html="content"></div>
         </div>
         <template v-else>

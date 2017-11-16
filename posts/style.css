@@ -48,15 +48,13 @@ body {
     position: relative;
 }
 
-#popup #close {
-    position: absolute;
-    right: -20px;
-    top: -20px;
-    cursor: pointer;
+#popup #back {
+    text-align: center;
 }
 
-#popup #close img {
-    width: 32px;
+#popup #back img {
+    cursor: pointer;
+    width: 90px;
 }
 
 #content h1 {
@@ -130,8 +128,6 @@ body {
     flex-flow: row wrap;
     width: calc(10*30px);
     border-color: #b5b5b5;
-    /* border-style: solid; */
-    /* border-width: 1px 0 0 1px; */
     padding: 0;
     box-sizing: content-box;
 }
@@ -153,6 +149,7 @@ body {
 .page:hover:not(.active):not(.empty) {
     cursor: pointer;
     font-weight: bold;
+    background-color: #bed0ea;
 }
 
 .page.active {
