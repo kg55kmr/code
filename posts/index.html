@@ -108,7 +108,6 @@
                     };
                     this.pages.push(page);
                 }
-                if (pageTotal < 10) this.pages = this.pages.concat(Array(10 - pageTotal).fill({index: -1}));
 
                 this.posts = this.pages[0].posts;
             }
