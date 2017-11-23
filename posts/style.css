@@ -118,15 +118,14 @@ body {
 }
 
 #pagination-wrapper {
-    display: flex;
-    justify-content: center;
 }
 
 #pagination {
     list-style: none;
     display: flex;
+    justify-content: center;
     flex-flow: row wrap;
-    width: calc(10*30px);
+    width: 100%;
     border-color: #b5b5b5;
     padding: 0;
     box-sizing: content-box;
