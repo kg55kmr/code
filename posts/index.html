@@ -86,7 +86,7 @@
             },
             async mounted() {
                 let query = new URLSearchParams(window.location.search);
-                let r = await axios.get(`http://school55.pp.ua/tags/${query.get('from')}/index.json`);
+                let r = await axios.get(`https://school55.pp.ua/tags/${query.get('from')}/index.json`);
                 for (let post of r.data) {
                     let d = new Date(post.date);
                     post.date = ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth() + 1)).slice(-2) + '/' + d.getFullYear();
@@ -118,7 +118,7 @@
             }
         });
         function emptyThumb(o) {
-            $(o).attr('src', 'http://school55.pp.ua/images/thumbnails/empty.jpg');
+            $(o).attr('src', 'https://school55.pp.ua/images/thumbnails/empty.jpg');
         }
     </script>
 </body>
